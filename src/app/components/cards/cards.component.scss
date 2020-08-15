@@ -1,25 +1,48 @@
 
-  .example-card {
-    max-width: 200px;
-    cursor: pointer;
-    margin-top: 1rem;
-  }
-  
-  .example-card:hover {
+
+.all-layer-cards
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body-cards
+{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    min-height: 100vh;
+
+}
+
+.container{
+    position: relative;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: minmax(100px, auto);
+    margin: 40px;
+    grid-auto-flow: dense;
+    grid-gap: 30px;
+}
+
+.container .box{
+    padding: 20px;
+    display: grid;
+    // place-items: center;
+    text-align: start;
+    background-color: transparent;
+    // color: #fff;
+}
+
+.container .box:hover {
     cursor: pointer;
     transform: translate3d(0,-4px,0);
     box-shadow: 0 12px 30px 0 rgba(0,0,0,.2);
     transition-property: box-shadow,transform;
     transition-duration: 600ms;
-    transition-timing-function: cubic-bezier(.16,1,.29,.99);
-  }
-  
-.card-inline{
-    display: inline-block;
-}
-  
-.space-card{
-    margin: 1rem;
+    transition-timing-function: cubic-bezier(.16,1,.29,.99)
 }
 
 
