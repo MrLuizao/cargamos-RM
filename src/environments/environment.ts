@@ -1,6 +1,5 @@
 
 export const environment = {
   production: false,
-  urlBase: 'https://rickandmortyapi.com/api/episode/'
-
+  urlBase: 'https://rickandmortyapi.com/api/'
 };

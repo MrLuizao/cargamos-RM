@@ -45,5 +45,11 @@
     transition-timing-function: cubic-bezier(.16,1,.29,.99)
 }
 
+.gif-back{
+    background-image: url('https://i.imgur.com/pf1Ry2A.gif');
+    -webkit-filter: brightness(90%);    
+    filter: brightness(90%);
+}
+
 
   

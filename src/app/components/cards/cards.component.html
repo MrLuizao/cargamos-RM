@@ -1,11 +1,11 @@
 
-<section class="mat-typography">
+<section class="mat-typography gif-back" >
     <div class="container"  infinite-scroll (scrolled)="onScrollRender()">
-        <div class="box" *ngFor="let item of dataService">
+        <div class="box" *ngFor="let item of dataService" [routerLink]="['/details', item.id]">
             <div class="content" >
                 <h1>{{item.name}}</h1>  
                 <h4><strong>Premiere:</strong> &nbsp; {{item.air_date}}</h4>  
-            </div>            
+            </div>      
         </div>
     </div>
     

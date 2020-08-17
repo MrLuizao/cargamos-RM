@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
+
 import { RestApiService } from 'src/app/services/rest-api.service';
 import { Episode } from 'src/app/models/episode.model';
 import { take } from 'rxjs/operators'
@@ -14,7 +15,7 @@ type RequestInfo = {
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-  
+
   dataService: Episode[]=[];
 
   info: RequestInfo = {
@@ -27,7 +28,7 @@ export class CardsComponent implements OnInit {
   viewScrollTopBtn = false;
 
   constructor(
-    @Inject(DOCUMENT) 
+    @Inject(DOCUMENT)
     private document: Document,
     public apiService: RestApiService) { }
 
@@ -43,7 +44,7 @@ export class CardsComponent implements OnInit {
     
   ngOnInit() {
     this.getDataItems();
-    this.renderDataItems();
+    // this.renderDataItems();
   }
 
   getDataItems(){
@@ -57,7 +58,7 @@ export class CardsComponent implements OnInit {
   }
 
   renderDataItems(){
-    this.apiService.getAllChapters(this.page)
+    this.apiService.getAllChapters()
     .pipe( take(1))
     .subscribe( (resp:any) => {
       if(resp?.results?.length){
@@ -73,13 +74,27 @@ export class CardsComponent implements OnInit {
   onScrollRender(){
     if(this.info.next){
       this.page++;
-      this.getDataItems();
+
+    this.apiService.getAllChapters(this.page)
+    .pipe( take(1))
+    .subscribe( (resp:any) => {
+      if(resp?.results?.length){
+        const { info, results} = resp.results;
+        this.dataService = [...this.dataService, results];
+        this.info = info;
+      }
+    })
+
     }
   }
 
   goScrollTop(){
     this.document.body.scrollTop = 0;
     this.document.documentElement.scrollTop =0;
+  }
+
+  openDetails(id){
+    console.log(id);
   }
 
 }

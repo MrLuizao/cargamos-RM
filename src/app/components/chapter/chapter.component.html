@@ -1,0 +1,15 @@
+<section class="mat-typography" style="margin: 1.5rem; text-align: center;">
+    <div class="container"  *ngFor="let item of dataJoined" style="margin: 1.5rem; display: inline-block;">
+        <mat-card class="example-card" style="display: inline-block; ">
+            <mat-card-header>
+              <mat-card-title>{{item.name}}</mat-card-title>
+              <mat-card-subtitle>{{item.gender}}</mat-card-subtitle>
+            </mat-card-header>
+            <img src="{{item.image}}" alt="">
+            <mat-card-content>
+                <p>Origin: </p>
+                <mat-card-subtitle>{{item.origin.name}}</mat-card-subtitle>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</section>

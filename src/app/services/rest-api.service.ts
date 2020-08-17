@@ -10,12 +10,16 @@ export class RestApiService {
 
   constructor(private _http: HttpClient) { }
 
-  getAllChapters(page = 2){
-    return this._http.get<Episode[]>(`${environment.urlBase}?page=${page}`)
+  getAllChapters(page = 1){
+    return this._http.get<Episode[]>(`${environment.urlBase}episode/?page=${page}`)
   }
 
   getChapterById(id: number){
-    return this._http.get<Episode>(`${environment.urlBase}/${id}`)
+    return this._http.get<Episode>(`${environment.urlBase}episode/${id}`)
+  }
+
+  getCharacterByEpisode(urlData: string){
+    return this._http.get<Episode>(`${urlData}`)
   }
 }
 

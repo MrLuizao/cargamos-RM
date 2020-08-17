@@ -9,3 +9,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
 //     -webkit-filter: brightness(90%);    
 //     filter: brightness(90%);
 //   }
+
+body > app-root > app-dashboard > mat-drawer-container > mat-drawer-content > app-nav-header > mat-toolbar > button > mat-icon:hover{
+    cursor: pointer;
+}
